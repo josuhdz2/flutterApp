@@ -3,6 +3,7 @@ import 'pages/fourthScreen.dart';
 import 'pages/secondScreen.dart';
 import 'pages/thirtScreen.dart';
 import 'pages/fifthScreen.dart';
+import 'pages/sixthScreen.dart';
 
 void main()
 {
@@ -16,7 +17,8 @@ void main()
       '/second':(context) => const SecondScreen(),
       '/info':(context)=> const ThirtScreen(),
       '/fourth':(context)=>const FourthScreen(),
-      '/fifth':(context)=>const FifthScreen()
+      '/fifth':(context)=>const FifthScreen(),
+      '/sixth':(context)=>SixthScreen()
     }
     //home: HomePage()
   ));
@@ -90,6 +92,14 @@ class HomePage extends StatelessWidget
                   Navigator.pushNamed(context, '/fifth');
                 },
                 child: const Text("Datos en Stack")
+              ),
+              SizedBox(height: 20.0,),
+              ElevatedButton(
+                onPressed: (){
+                  //final route=MaterialPageRoute(builder: (context)=>ThirtScreen());
+                  Navigator.pushNamed(context, '/sixth');
+                },
+                child: const Text("Fkormulario")
               ),
             ],
           )

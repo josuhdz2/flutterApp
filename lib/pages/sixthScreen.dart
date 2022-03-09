@@ -32,136 +32,227 @@ class _SixthScreenState extends State<SixthScreen>
     (
       body: Center
       (
-        child: Padding
+        child: Form
         (
-          padding: const EdgeInsets.all(50.0),
+          //padding: const EdgeInsets.all(50.0),
           child: Column
           (
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>
             [
-              TextField
+              Container
               (
-                keyboardType: TextInputType.emailAddress,
-                autofocus: true,
-                controller: _controller,
-                decoration: const InputDecoration
+                padding: const EdgeInsets.symmetric
                 (
-                  labelText: 'Correo',
-                  hintText: 'Introduce tu correo',
-                  prefixIcon: Icon
+                  horizontal: 20.0
+                ),
+                margin: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                decoration: BoxDecoration
+                (
+                  borderRadius: BorderRadius.circular(5.0),
+                  border: Border.all
                   (
-                    Icons.contact_mail
+                    color: Colors.grey
                   )
                 ),
-                onSubmitted: (String value) async
-                {
-                  await showDialog<void>
+                child: TextFormField
+                (
+                  keyboardType: TextInputType.emailAddress,
+                  autofocus: true,
+                  controller: _controller,
+                  decoration: const InputDecoration
                   (
-                    context: context,
-                    builder: (BuildContext context)
-                    {
-                      return AlertDialog
-                      (
-                        title: Text('Prueba de dialogo'),
-                        content: Text('Ha escrito "$value" de longitud ${value.length}'),
-                        actions: <Widget>
-                        [
-                          TextButton
-                          (
-                            onPressed: ()=> Navigator.pop(context),
-                            child: Text('OK')
-                          )
-                        ],
-                      );
-                    }
-                  );
-                },
+                    border: InputBorder.none,
+                    labelText: 'Correo',
+                    hintText: 'Introduce tu correo',
+                    prefixIcon: Icon
+                    (
+                      Icons.contact_mail
+                    )
+                  )
+                  /*onSubmitted: (String value) async
+                  {
+                    await showDialog<void>
+                    (
+                      context: context,
+                      builder: (BuildContext context)
+                      {
+                        return AlertDialog
+                        (
+                          title: Text('Prueba de dialogo'),
+                          content: Text('Ha escrito "$value" de longitud ${value.length}'),
+                          actions: <Widget>
+                          [
+                            TextButton
+                            (
+                              onPressed: ()=> Navigator.pop(context),
+                              child: Text('OK')
+                            )
+                          ],
+                        );
+                      }
+                    );
+                  },*/
+                ),
               ),
-              SizedBox
+              const SizedBox
               (
                 height: 20.0
               ),
-              TextField
+              Container
               (
-                obscureText: true,
-                decoration: const InputDecoration
+                padding: const EdgeInsets.symmetric
                 (
-                  prefixIcon: Icon
+                  horizontal: 20.0
+                ),
+                margin: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                decoration: BoxDecoration
+                (
+                  borderRadius: BorderRadius.circular(5.0),
+                  border: Border.all
                   (
-                    Icons.lock
-                  ),
-                  labelText: 'Password'
-                )
+                    color: Colors.grey
+                  )
+                ),
+                child: const TextField
+                (
+                  obscureText: true,
+                  decoration: InputDecoration
+                  (
+                    prefixIcon: Icon
+                    (
+                      Icons.lock
+                    ),
+                    labelText: 'Password'
+                  )
+                ),
               ),
-              SizedBox
+              const SizedBox
               (
                 height: 20.0
               ),
-              TextField
+              Container
               (
-                keyboardType: TextInputType.number,
-                inputFormatters:
-                [
-                  FilteringTextInputFormatter.allow
-                  (
-                    RegExp('[0-9 -]')
-                  ),
-                  LengthLimitingTextInputFormatter(19)
-                ],
-                decoration: const InputDecoration
+                padding: const EdgeInsets.symmetric
                 (
-                  prefixIcon: Icon
+                  horizontal: 20.0
+                ),
+                margin: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                decoration: BoxDecoration
+                (
+                  borderRadius: BorderRadius.circular(5.0),
+                  border: Border.all
                   (
-                    Icons.credit_card
-                  ),
-                  labelText: 'Password',
-                  hintText: '4152-1234-2735-2637'
-                )
+                    color: Colors.grey
+                  )
+                ),
+                child: TextField
+                (
+                  keyboardType: TextInputType.number,
+                  inputFormatters:
+                  [
+                    FilteringTextInputFormatter.allow
+                    (
+                      RegExp('[0-9 -]')
+                    ),
+                    LengthLimitingTextInputFormatter(19)
+                  ],
+                  decoration: const InputDecoration
+                  (
+                    prefixIcon: Icon
+                    (
+                      Icons.credit_card
+                    ),
+                    labelText: 'Password',
+                    hintText: '4152-1234-2735-2637'
+                  )
+                ),
               ),
-              SizedBox
+              const SizedBox
               (
                 height:30.0,
               ),
-              Text('Selecciona opcion1'),
-              Checkbox
+              Container
               (
-                value: bandera1,
-                onChanged: (bool? value)
-                {
-                  setState(()
+                padding: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                margin: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                child: CheckboxListTile
+                (
+                  title: const Text('Selecciona opcion 1'),
+                  value: bandera1,
+                  onChanged: (bool? value)
                   {
-                    bandera1=value!;
-                  });
-                },
+                    setState(()
+                    {
+                      bandera1=value!;
+                    });
+                  },
+                ),
               ),
-              Text('Selecciona opcion2'),
-              Checkbox
+              Container
               (
-                value: bandera2,
-                onChanged: (bool? value)
-                {
-                  setState(()
+                padding: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                margin: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                child: CheckboxListTile
+                (
+                  title: const Text('Selecciona opcion 2'),
+                  value: bandera2,
+                  onChanged: (bool? value)
                   {
-                    bandera2=value!;
-                  });
-                },
+                    setState(()
+                    {
+                      bandera2=value!;
+                    });
+                  },
+                ),
               ),
-              Text('Selecciona opcion3'),
-              Checkbox
+              Container
               (
-                value: bandera3,
-                onChanged: (bool? value)
-                {
-                  setState(()
+                padding: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                margin: const EdgeInsets.symmetric
+                (
+                  horizontal: 20.0
+                ),
+                child: CheckboxListTile
+                (
+                  title: const Text('Selecciona opcion 3'),
+                  value: bandera3,
+                  onChanged: (bool? value)
                   {
-                    bandera3=value!;
-                  });
-                },
+                    setState(()
+                    {
+                      bandera3=value!;
+                    });
+                  },
+                ),
               ),
               ElevatedButton
               (
-                child: Text("Regresar"),
+                child: const Text("Regresar"),
                 onPressed:()
                 {
                   Navigator.pop(context);

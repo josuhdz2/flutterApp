@@ -22,17 +22,17 @@ class ThirtScreen extends StatelessWidget
                 width: 200.0
               ),
               SizedBox(height: 20.0,),
-              Text(
+              const Text(
                 "Josue Hernandez Chavez",
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25.0
                 )
               ),
               SizedBox(height: 20.0,),
-              Text(
+              const Text(
                 "TI01SM-20, Desarrollo movil",
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20.0
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class SixthScreen extends StatefulWidget
 {
   SixthScreen({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class _SixthScreenState extends State<SixthScreen>
   bool bandera1=true;
   bool bandera2=true;
   bool bandera3=true;
+  var maskFormatter = MaskTextInputFormatter(mask: '####-####-####-####', filter: { "#": RegExp(r'[0-9]') }, type: MaskAutoCompletionType.lazy);
   @override
   void initState()
   {
@@ -160,11 +162,7 @@ class _SixthScreenState extends State<SixthScreen>
                   keyboardType: TextInputType.number,
                   inputFormatters:
                   [
-                    FilteringTextInputFormatter.allow
-                    (
-                      RegExp('[0-9 -]')
-                    ),
-                    LengthLimitingTextInputFormatter(19)
+                    maskFormatter
                   ],
                   decoration: const InputDecoration
                   (

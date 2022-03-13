@@ -4,6 +4,7 @@ import 'pages/secondScreen.dart';
 import 'pages/thirtScreen.dart';
 import 'pages/fifthScreen.dart';
 import 'pages/sixthScreen.dart';
+import 'pages/seventhScreen.dart';
 
 void main()
 {
@@ -18,7 +19,8 @@ void main()
       '/info':(context)=> const ThirtScreen(),
       '/fourth':(context)=>const FourthScreen(),
       '/fifth':(context)=>const FifthScreen(),
-      '/sixth':(context)=>SixthScreen()
+      '/sixth':(context)=> SixthScreen(),
+      '/seventh':(context)=> SeventhScreen()
     }
     //home: HomePage()
   ));
@@ -99,8 +101,15 @@ class HomePage extends StatelessWidget
                   //final route=MaterialPageRoute(builder: (context)=>ThirtScreen());
                   Navigator.pushNamed(context, '/sixth');
                 },
-                child: const Text("Fkormulario")
+                child: const Text("Formulario")
               ),
+              ElevatedButton(
+                onPressed: (){
+                  //final route=MaterialPageRoute(builder: (context)=>ThirtScreen());
+                  Navigator.pushNamed(context, '/seventh');
+                },
+                child: const Text("Info de tarjeta")
+              )
             ],
           )
         ),
